@@ -2,8 +2,7 @@
 def roman_to_int(roman_string):
     if roman_string is None or isinstance(roman_string, str) is not True:
         return 0
-    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100,
-                  'D': 500, 'M': 1000}
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     tot = 0
     prev = 0
     for let in roman_string:
@@ -15,5 +14,5 @@ def roman_to_int(roman_string):
             tot = tot + roman[let] - prev * 2
         else:
             tot = roman[let] + tot
-        prev = roman[let]
-    return tot
+            prev = roman[let]
+            return tot
