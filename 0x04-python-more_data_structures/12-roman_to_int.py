@@ -15,4 +15,4 @@ def roman_to_int(roman_string):
         else:
             tot = roman[let] + tot
             prev = roman[let]
-            return tot
+        return tot
