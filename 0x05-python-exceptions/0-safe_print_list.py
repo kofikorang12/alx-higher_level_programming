@@ -7,5 +7,6 @@ def safe_print_list(my_list=[], x=0):
             tot = tot + 1
         except:
             pass
-        print()
-        return tot
+
+    print()
+    return tot
