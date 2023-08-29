@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import math
-
+"""
+Square module.
+"""
 class MagicClass:
     ''' doc string '''
     def __init__(self, radius=0):
