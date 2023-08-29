@@ -1,21 +1,19 @@
 #!/usr/bin/python3
 import math
-"""
-Square module.
-"""
 class MagicClass:
-    ''' doc string '''
+
+    """Class that stores the properties
+    of a circumference"""
     def __init__(self, radius=0):
-        ''' doc string '''
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
             raise TypeError('radius must be a number')
         self.__radius = radius
 
+    """ Method that calculates the area of the circumference """
     def area(self):
-        ''' doc string '''
-        return (self.__radius)**2 * math.pi
+        return ((self.__radius ** 2) * math.pi)
 
+    """ Method that calculates the perimeter of a circumference """
     def circumference(self):
-        ''' doc string '''
-        return 2 * math.pi * self.__radius
+        return (2 * math.pi * self.__radius)
