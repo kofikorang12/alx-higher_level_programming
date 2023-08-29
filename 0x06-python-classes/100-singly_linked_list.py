@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Singly linked list Module
+"""
 class Node:
     ''' node of a singly linked list
     '''
