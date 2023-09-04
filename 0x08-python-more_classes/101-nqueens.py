@@ -3,7 +3,6 @@
 """
 N Queens puzzle module
 """
-
 import sys
 
 def main(argv):
