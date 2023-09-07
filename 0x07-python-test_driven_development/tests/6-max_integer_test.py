@@ -1,27 +1,30 @@
-#!/usr/bin/python3
-"""Unittest for max_integer([..])
+"""
+TestMaxInteger testing max integer class
 """
 import unittest
+
 max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
-    def test_basic(self):
-        self.assertEqual(max_integer([1, 2, 3]), 3)
-        self.assertEqual(max_integer([-8, 3, 4]), 4)
-        self.assertEqual(max_integer([5, 5]), 5)
-        self.assertEqual(max_integer([0]), 0)
-        self.assertEqual(max_integer([]), )
-        self.assertEqual(max_integer(), )
-        self.assertEqual(max_integer('string'), 't')
-        self.assertEqual(max_integer(['string1', 'string2'], 'string2')
-        self.assertEqual(max_integer((1, 2)), 2)
+    def test_default_list(self):
+        self.assertEqual(max_integer(), None)
 
-    def test_errors(self):
+    def test_max_list_first(self):
+        lst = [55, 5, 3, 44]
+        self.assertEqual(max_integer(lst), 55)
+
+    def test_max_list_last(self):
+        lst = [0, 1, 3, 55]
+        self.assertEqual(max_integer(lst), 55)
+
+    def test_max_mixed_list(self):
+        lst = [-1, -4, 0, 4, -6]
+        self.assertEqual(max_integer(lst), 4)
+
+    def test_max_list_with_string(self):
+        lst = ['issam', 5, 6, 9]
         with self.assertRaises(TypeError):
-            max_integer(400, 'string')
-        with self.assertRaises(TypeError):
-            max_integer(1)
-        with self.assertRaises(TypeError):
-            max_integer({3, 4})
-        with self.assertRaises(KeyError):
-            max_integer({'num1': 3, 'num2': 4})
+            max_integer(lst)
+
+if __name__ == "__main__":
+    unittest.main()
