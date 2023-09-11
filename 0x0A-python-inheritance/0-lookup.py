@@ -1,5 +1,16 @@
 #!/usr/bin/python3
-''' module containing wrapper for dir() '''
+"""Module to lookup for available mtds"""
+
+
 def lookup(obj):
-    ''' returns attributes and methods of obj '''
+    """
+    Returns the list of available attributes and metds of an obj
+
+    Args:
+        obj (object): the given obj
+
+    Returns:
+        (list): obj list
+
+    """
     return dir(obj)
