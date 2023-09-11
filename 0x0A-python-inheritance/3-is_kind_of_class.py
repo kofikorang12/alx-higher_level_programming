@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Is kind of class module"""
 
+
 def is_kind_of_class(obj, a_class):
-    """Returns if the object is an instance of the given calss or an inherited
+    """Returns if the obj is an instance of the given calss or an inherited
         class of it.
 
     Args:
