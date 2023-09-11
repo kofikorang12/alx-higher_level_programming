@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-''' module containing an empty class '''
+"""Base Geometry module"""
 
 
 class BaseGeometry:
-    ''' an empty class '''
+    """BaseGeometry class"""
     pass
