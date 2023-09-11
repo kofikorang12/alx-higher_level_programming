@@ -1,11 +1,19 @@
 #!/usr/bin/python3
-''' module containing function to add an attribure to a class '''
+"""Add attributes module"""
 
 
-def add_attribute(cls_instance, att_name, att_val):
-    ''' function that adds a new attribute to an instance if possible '''
-    cls_name = type(cls_instance)
-    if type(cls_name) is type and '__dict__' in cls_name.__dict__:
-        cls_instance.__dict__[str(att_name)] = att_val
-    else:
+def add_attribute(obj, key, value):
+    """Adds attributes to the given object
+
+    Args:
+        obj (object): the given object
+        key (object): the given key
+        value (object): the given object
+
+    Raises:
+        TypeError: If cannot add a new attribute to the object
+
+    """
+    if not hasattr(obj, "__dict__"):
         raise TypeError("can't add new attribute")
+    setattr(obj, key, value)
