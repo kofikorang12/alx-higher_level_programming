@@ -1,15 +1,18 @@
 #!/usr/bin/python3
+"""Is inheerit from module"""
+
+
 def inherits_from(obj, a_class):
-    """ Function that returns True/False if obj is an instance of a_class
+    """Returns if the object is an instance of a the given class
+    that inherited (directly/indirectly) from the specified class
 
     Args:
-        obj: object
-        a_class: class type
+        obj (object): the given object
+        a_class (class): the given class
 
-    Returns:
-        True if obj is an instance of a_class
-        False, otherwise
+    Return:
+        (True) if a sublclass
+        (False) otherwise
+
     """
-    if type(obj) is a_class:
-        return False
-    return isinstance(obj, a_class)
+    return issubclass(type(obj), a_class) and type(obj) != a_class
