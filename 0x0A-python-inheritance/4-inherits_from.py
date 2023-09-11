@@ -1,10 +1,15 @@
 #!/usr/bin/python3
-''' module containing function to check if an object inherited from another
-class, excluding the class the instance was created from '''
-
-
 def inherits_from(obj, a_class):
-    ''' checks if an obj is an inherits from a class '''
-    if isinstance(obj, a_class) and type(obj) is not a_class:
-        return True
-    return False
+    """ Function that returns True/False if obj is an instance of a_class
+
+    Args:
+        obj: object
+        a_class: class type
+
+    Returns:
+        True if obj is an instance of a_class
+        False, otherwise
+    """
+    if type(obj) is a_class:
+        return False
+    return isinstance(obj, a_class)
