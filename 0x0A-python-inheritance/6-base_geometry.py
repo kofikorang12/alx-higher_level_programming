@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-''' module containing a class that can raise an exception '''
+"""Base Geometry module"""
 
 
 class BaseGeometry:
-    ''' class that can raise an exception '''
+    """BaseGeometry class"""
+
     def area(self):
-        ''' function that can raise exception '''
-        raise Exception('area() is not implemented')
+        """Public instance method"""
+        raise Exception("area() is not implemented")
