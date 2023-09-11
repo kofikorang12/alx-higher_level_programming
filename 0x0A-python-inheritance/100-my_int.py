@@ -1,18 +1,13 @@
 #!/usr/bin/python3
-''' module containing MyInt class (based on int) '''
+"""Rebelion integer module"""
 
 
 class MyInt(int):
-    ''' class based on int, with == and != operators reversed '''
-
+    """Myint class"""
     def __eq__(self, other):
-        ''' equality operator '''
-        if int(self) == int(other):
-            return False
-        return True
+        """Equity comparaison"""
+        return not super().__eq__(other)
 
     def __ne__(self, other):
-        ''' unequality operator '''
-        if int(self) == int(other):
-            return True
-        return False
+        """Not equity comparaison"""
+        return not super().__ne__(other)
