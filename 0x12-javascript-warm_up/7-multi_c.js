@@ -1,5 +1,9 @@
 #!/usr/bin/node
-let i = parseInt(process.argv[2]);
-for (; i > 0; i--) {
-  console.log("C is fun");
+const occure = Number(process.argv[2]);
+if (occure) {
+  for (let index = 0; index < occure; index++) {
+    console.log('C is fun');
+  }
+} else {
+  console.log('Missing number of occurre');
 }
