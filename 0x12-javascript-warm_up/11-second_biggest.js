@@ -1,13 +1,12 @@
 #!/usr/bin/node
-let list_arg = process.argv;
-list_arg.shift();
-list_arg.shift();
-list_arg.forEach(function (element, index) {
-  list_arg[index] = parseInt(element);
+const array = process.argv.slice(2).map(function (x) {
+  return Number(x);
 });
-list_arg.splice(list_arg.indexOf(Math.max(...list_arg)), 1);
-if (list_arg.length === 0) {
-  console.log(0);
+array.sort(function (a, b) {
+  return a - b;
+});
+if (array.length > 1) {
+  console.log(array[array.length - 2]);
 } else {
-  console.log(Math.max(...list_arg));
+  console.log(0);
 }
