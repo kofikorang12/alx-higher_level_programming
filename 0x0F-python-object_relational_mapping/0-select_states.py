@@ -1,24 +1,17 @@
 #!/usr/bin/python3
 """
-script to print states in a database
+Lists all states from the database hbtn_0e_0_usa
 """
-
-import MySQLdb
 import sys
+import MySQLdb
 
-if __name__ == "__main__":
-        db = MySQLdb.connect(user=sys.argv[1],
-                             passwd=sys.argv[2], db=sys.argv[3])
+if __name__ == '__main__':
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                         db=sys.argv[3], port=3306)
 
-        cursor = db.cursor()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states;")
+    states = cur.fetchall()
 
-        cursor.execute("SELECT * FROM states")
-
-        my_states = cursor.fetchall()
-
-        for state in my_states:
-                print(state)
-
-        cursor.close()
-
-        db.close()
+    for state in states:
+        print(state)
