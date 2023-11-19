@@ -1,34 +1,18 @@
 #!/usr/bin/python3
 """
-script to print cities
+List all cities from a database
 """
-
-import MySQLdb
 import sys
+import MySQLdb
 
+if __name__ == '__main__':
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                         db=sys.argv[3], port=3306)
 
-def main():
-        """
-        calls db fuctions in order to select and print states
-        """
+    cur = db.cursor()
+    cur.execute("SELECT cities.id, cities.name, states.name \
+    FROM cities JOIN states ON cities.state_id = states.id;")
+    states = cur.fetchall()
 
-        db = MySQLdb.connect("localhost", sys.argv[1],
-                             sys.argv[2], sys.argv[3])
-
-        cursor = db.cursor()
-
-        cursor.execute('''SELECT cities.id, cities.name, states.name
-                        FROM cities
-                        INNER JOIN states
-                        ON states.id=cities.state_id;''')
-
-        my_cities = cursor.fetchall()
-
-        for city in my_cities:
-                print(city)
-
-        db.close()
-
-
-if __name__ == "__main__":
-        main()
+    for state in states:
+        print(state)
