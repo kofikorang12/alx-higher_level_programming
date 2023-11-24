@@ -1,26 +1,17 @@
 #!/usr/bin/python3
 """
-city class
+model_state module
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
-
 Base = declarative_base()
 
 
 class City(Base):
-        """
-        class representing a city
-        """
+        """City Class"""
         __tablename__ = 'cities'
-        id = Column(Integer, primary_key=True, nullable=False)
+        id = Column(Integer, unique=True, nullable=False,autoincrement=True, primary_key=True)
         name = Column(String(128), nullable=False)
         state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-
-        def __init__(self, name):
-                self.name = name
-
-        def __str__(self):
-                return '({}) {}'.format(self.id, self.name)
