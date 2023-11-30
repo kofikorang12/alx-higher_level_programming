@@ -1,3 +1,3 @@
 #!/bin/bash
-# displays body of a curl response
-curl -sfL "$1"
+# Sends a GET request with curl
+curl -Ls "$1"
