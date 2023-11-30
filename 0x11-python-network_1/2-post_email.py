@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-sends POST request to a url, using email variable
+sends POST req to a url, using email variable
 '''
 
 from urllib.request import urlopen, Request
