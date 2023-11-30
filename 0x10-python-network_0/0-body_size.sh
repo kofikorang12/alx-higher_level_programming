@@ -1,3 +1,3 @@
 #!/bin/bash
-# displays content length
-curl -sI "$1" | grep "Content-Length" | cut -d' ' -f2
+# Display the length of the response
+curl -sI "$1" | awk -v FS=": " '/^Content-Length/{print $2}'
