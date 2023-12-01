@@ -1,18 +1,13 @@
 #!/usr/bin/python3
-'''
-fetches a webpage
-'''
-
-from urllib.request import urlopen
-from urllib.error import HTTPError
-from sys import argv
+"""UrlLibRequest"""
+from urllib import error, request
+import sys
 
 
-if __name__ == "__main__":
-        try:
-                with urlopen(argv[1]) as response:
-                        print(response.read().decode('utf-8'))
-        except HTTPError as e:
-                print('Error code:', e.code)
-        except Exception as e:
-                raise(e)
+if __name__ == '__main__':
+    try:
+        with request.urlopen(sys.argv[1]) as res:
+            body = res.read()
+            print(body.decode("utf8"))
+    except error.HTTPError as e:
+        print("Error code: {}".format(e.code))

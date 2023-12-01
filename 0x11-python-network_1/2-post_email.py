@@ -1,17 +1,12 @@
 #!/usr/bin/python3
-'''
-sends POST request to a url, using email variable
-'''
-
-from urllib.request import urlopen, Request
-from urllib.parse import urlencode
-from sys import argv
+"""UrlLibRequest"""
+from urllib import parse, request
+import sys
 
 
-if __name__ == "__main__":
-        data = {'email': argv[2]}
-        data = urlencode(data)
-        data = data.encode('utf-8')
-        req = Request(url=argv[1], data=data, method='POST')
-        with urlopen(req) as response:
-                print(response.read().decode('utf-8'))
+if __name__ == '__main__':
+    data = parse.urlencode({"email": sys.argv[2]})
+    data = data.encode()
+    with request.urlopen(sys.argv[1], data) as res:
+        body = res.read()
+    print(body.decode("utf8"))

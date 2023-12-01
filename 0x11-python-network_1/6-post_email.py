@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-'''
-fetches a webpage
-'''
-
-from requests import post
-from sys import argv
+"""Requests"""
+import requests
+import sys
 
 
-if __name__ == "__main__":
-        response = post(argv[1], data={'email': argv[2]})
-        print(response.text)
+if __name__ == '__main__':
+    r = requests.post(sys.argv[1], {"email": sys.argv[2]})
+    print(r.text)

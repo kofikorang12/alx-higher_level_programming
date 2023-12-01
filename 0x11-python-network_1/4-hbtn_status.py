@@ -1,14 +1,10 @@
 #!/usr/bin/python3
-'''
-fetches a webpage
-'''
-
-from requests import get
+"""UrlLibRequest"""
+import requests
 
 
-if __name__ == "__main__":
-        response = get('https://intranet.hbtn.io/status')
-        response = response.content.decode('utf-8')
-        print("Body response:")
-        print('\t- type:', response.__class__)
-        print('\t- content:', response)
+if __name__ == '__main__':
+    r = requests.get('https://intranet.hbtn.io/status')
+    print("Body response:")
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
