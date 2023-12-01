@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""UrlLibRequest"""
-import urllib.request
+"""
+Docstrig
+"""
+
+from urllib import request
 import sys
 
-
-if __name__ == '__main__':
-    with urllib.request.urlopen(sys.argv[1]) as res:
-        header_var = res.getheader('X-Request-Id')
-    print(header_var)
+if __name__ == "__main__":
+    with request.urlopen(sys.argv[1]) as response:
+        print(response.info()['X-Request-Id'])
