@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-"""Requests"""
-import requests
-import sys
+"""displays the value of the X-Request-Id variable found in
+the header of the res.
+"""
 
+if __name__ == "__main__":
+    from requests import get
+    from sys import argv
 
-if __name__ == '__main__':
-    r = requests.get(sys.argv[1])
-    if r.status_code >= 400:
-        print("Error code: {}".format(r.status_code))
+    response = get(argv[1])
+    if response.status_code >= 400:
+        print("Error code: {}".format(response.status_code))
     else:
-        print(r.text)
+        print(response.text)
