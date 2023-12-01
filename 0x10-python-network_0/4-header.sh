@@ -1,3 +1,3 @@
 #!/bin/bash
-# sends a get request with a header parameter
-curl -sX GET -H "X-School-User-Id: 98" "$1"
+# Script to display body of a redirect
+curl -sH "X-HolbertonSchool-User-Id: 98" -XGET $1

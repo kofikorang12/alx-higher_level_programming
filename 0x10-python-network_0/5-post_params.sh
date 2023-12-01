@@ -1,3 +1,3 @@
 #!/bin/bash
-# Script that sends a POST request and displays the body response
-curl -s "$1" -X POST -d "email=hr@holbertonschool.com&subject=I will always be here for PLD"
+# Script to display body of a redirect
+curl -s $1 -XPOST -d "email=hr@holbertonschool.com" -d "subject=I will always be here for PLD"

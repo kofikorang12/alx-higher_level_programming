@@ -1,3 +1,3 @@
 #!/bin/bash
-# Sends a GET request with curl
-curl -Ls "$1"
+# Script to display body of a redirect
+curl -sL -XGET $1
