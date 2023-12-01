@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Requests"""
+
 import requests
 import sys
 
