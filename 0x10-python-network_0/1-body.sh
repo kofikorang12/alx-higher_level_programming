@@ -1,3 +1,3 @@
 #!/bin/bash
-# Script to display body of a redirect
-curl -sL -XGET $1
+# display the body of the res
+curl -sL "$1"

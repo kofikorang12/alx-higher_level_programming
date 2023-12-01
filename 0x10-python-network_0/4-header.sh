@@ -1,3 +1,3 @@
 #!/bin/bash
-# Script to display body of a redirect
-curl -sH "X-HolbertonSchool-User-Id: 98" -XGET $1
+# take a URL as argument, send a GET request to a URL, and displays body of the res
+curl -sH "X-School-User-Id: 98" "$1"
