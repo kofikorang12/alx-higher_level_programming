@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-displays value of X-Request-Id variable from header of a res
+displays value of X-Request-Id variable from header of a response
 '''
 
 from urllib.request import urlopen

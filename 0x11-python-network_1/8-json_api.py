@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-posts letter to a url
+posts a letter to a url
 '''
 
 from requests import post

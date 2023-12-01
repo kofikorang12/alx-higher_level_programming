@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-fetche a webpage
+fetches a webpage
 '''
 
 from requests import get
