@@ -1,43 +1,24 @@
 #!/usr/bin/python3
-'''
-algorithm to find a peak (maximum) in a data set
-'''
+"""Find a peak in a lst of un-sorted int"""
 
 
 def find_peak(list_of_integers):
-    '''
-    algorithm to find a peak (maximum) in a data set
-    '''
+    """Finds a peak in list_of_integers"""
 
-    if len(list_of_integers) == 0:
+    if list_of_integers is None or list_of_integers == []:
         return None
-
-    if len(list_of_integers) == 1:
+    lo = 0
+    hi = len(list_of_integers)
+    mid = ((hi - lo) // 2) + lo
+    mid = int(mid)
+    if hi == 1:
         return list_of_integers[0]
-
-    mid = len(list_of_integers) // 2
-
-    if list_of_integers[mid] < list_of_integers[mid - 1]:
-        return find_peak(list_of_integers[:mid])
-
-    is_end = len(list_of_integers) == 2
-    condition1 = list_of_integers[mid] > list_of_integers[mid - 1]
-    condition2 = (is_end or list_of_integers[mid] > list_of_integers[mid + 1])
-
-    if condition1 and condition2:
+    if hi == 2:
+        return max(list_of_integers)
+    if list_of_integers[mid] >= list_of_integers[mid - 1] and\
+            list_of_integers[mid] >= list_of_integers[mid + 1]:
         return list_of_integers[mid]
-
-    if is_end and list_of_integers[mid] < list_of_integers[mid + 1]:
-        return find_peak(list_of_integers[mid + 1:])
-
-    try:
-        right = find_peak(list_of_integers[mid + 1:])
-    except:
-        right = None
-
-    left = find_peak(list_of_integers[:mid])
-
-    if right is None or right < left:
-        return left
-
-    return right
+    if mid > 0 and list_of_integers[mid] < list_of_integers[mid + 1]:
+        return find_peak(list_of_integers[mid:])
+    if mid > 0 and list_of_integers[mid] < list_of_integers[mid - 1]:
+        return find_peak(list_of_integers[:mid])
