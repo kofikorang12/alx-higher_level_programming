@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Requests"""
-import requests
-import sys
+"""displays the value of the X-Request-Id variable found in
+the header of the res.
+"""
 
+if __name__ == "__main__":
+    from requests import post
+    from sys import argv
 
-if __name__ == '__main__':
-    r = requests.post(sys.argv[1], {"email": sys.argv[2]})
-    print(r.text)
+    html = post(argv[1], data={'email': argv[2]})
+    print(html.text)

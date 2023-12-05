@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Requests"""
-import requests
-import sys
+"""displays the value of the X-Request-Id variable found in
+the header of the res.
+"""
 
+if __name__ == "__main__":
+    from requests import get
+    from sys import argv
 
-if __name__ == '__main__':
-    r = requests.get(sys.argv[1])
-    print(r.headers.get('X-Request-Id'))
+    html = get(argv[1])
+    print(html.headers.get('X-Request-Id'))

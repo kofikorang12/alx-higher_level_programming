@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""Requests"""
+"""displays the value of the X-Request-Id variable found in
+the header of the res.
+"""
 
-import requests
-import sys
 
+if __name__ == "__main__":
+    from requests import get
+    from sys import argv
 
-if __name__ == '__main__':
-    r = requests.get('https://api.github.com/user',
-                     auth=(sys.argv[1], sys.argv[2]))
+    r = get('https://api.github.com/user', auth=(argv[1], argv[2]))
     print(r.json().get('id'))

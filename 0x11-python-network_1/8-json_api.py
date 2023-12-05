@@ -1,16 +1,19 @@
 #!/usr/bin/python3
-"""Requests"""
-import requests
-import sys
+"""displays the value of the X-Request-Id variable found in
+the header of the res.
+"""
 
+if __name__ == "__main__":
+    from requests import post
+    from sys import argv
 
-if __name__ == '__main__':
-    data = {"q": sys.argv[1] if len(sys.argv) > 1 else ""}
-    r = requests.post('http://0.0.0.0:5000/search_user', data=data)
+    q = argv[1] if len(argv) > 1 else ""
+    r = post('http://0.0.0.0:5000/search_user', data={'q': q})
     try:
-        if not r.json():
-            print("No result")
+        response = r.json()
+        if response == {}:
+            print('No result')
         else:
-            print("[{}] {}".format(r.json().get("id"), r.json().get("name")))
+            print("[{}] {}".format(response.get("id"), response.get("name")))
     except ValueError:
-        print("Not a valid JSON")
+        print('Not a valid JSON')

@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""UrlLibRequest"""
-import requests
+"""displays the value of the X-Request-Id variable found in
+the header of the res.
+"""
 
+if __name__ == "__main__":
+    from requests import get
 
-if __name__ == '__main__':
-    r = requests.get('https://intranet.hbtn.io/status')
-    print("Body response:")
-    print("\t- type: {}".format(type(r.text)))
-    print("\t- content: {}".format(r.text))
+    html = get('https://alx-intranet.hbtn.io/status')
+    print('Body response:')
+    print("\t- type: {}".format(html.text.__class__))
+    print("\t- content: {}".format(html.text))

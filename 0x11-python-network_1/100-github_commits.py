@@ -1,12 +1,18 @@
 #!/usr/bin/python3
-"""Requests last 10"""
-import requests
-import sys
+"""displays the value of the X-Request-Id variable found in
+the header of the res.
+"""
 
+if __name__ == "__main__":
+    from requests import get
+    from sys import argv
 
-if __name__ == '__main__':
-    r = requests.get('https://api.github.com/repos/{}/{}/commits'.
-                     format(sys.argv[2], sys.argv[1]))
-    for c in r.json()[0:10]:
-        print("{}: {}".format(c.get('sha'),
-                              c.get('commit').get('author').get('name')))
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(argv[2], argv[1])
+    commits = get(url).json()
+    try:
+        for i in range(10):
+            print("{}: {}".format(
+                commits[i].get("sha"),
+                commits[i].get("commit").get("author").get("name")))
+    except IndexError:
+        pass
